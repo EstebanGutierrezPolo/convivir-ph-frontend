@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json.schemastore.org/staticwebapp.config.json",
+  "routes": [
+    {
+      "route": "/mis-vehiculos",
+      "rewrite": "/vehiculos.html"
+    },
+    {
+      "route": "/pasarela-simulada/*",
+      "rewrite": "/pasarela-simulada.html"
+    },
+    {
+      "route": "/auditoria",
+      "rewrite": "/auditoria.html"
+    },
+    {
+      "route": "/autorizaciones",
+      "rewrite": "/autorizaciones.html"
+    },
+    {
+      "route": "/cartera",
+      "rewrite": "/cartera.html"
+    },
+    {
+      "route": "/configuracion",
+      "rewrite": "/configuracion.html"
+    },
+    {
+      "route": "/control-vehicular",
+      "rewrite": "/control-vehicular.html"
+    },
+    {
+      "route": "/cuenta",
+      "rewrite": "/cuenta.html"
+    },
+    {
+      "route": "/cuentas",
+      "rewrite": "/cuentas.html"
+    },
+    {
+      "route": "/gastos",
+      "rewrite": "/gastos.html"
+    },
+    {
+      "route": "/historial-accesos",
+      "rewrite": "/historial-accesos.html"
+    },
+    {
+      "route": "/historial-inmueble",
+      "rewrite": "/historial-inmueble.html"
+    },
+    {
+      "route": "/inmuebles",
+      "rewrite": "/inmuebles.html"
+    },
+    {
+      "route": "/integrantes",
+      "rewrite": "/integrantes.html"
+    },
+    {
+      "route": "/login",
+      "rewrite": "/login.html"
+    },
+    {
+      "route": "/mis-inmuebles",
+      "rewrite": "/mis-inmuebles.html"
+    },
+    {
+      "route": "/mis-notificaciones",
+      "rewrite": "/mis-notificaciones.html"
+    },
+    {
+      "route": "/mis-obligaciones",
+      "rewrite": "/mis-obligaciones.html"
+    },
+    {
+      "route": "/mis-reportes",
+      "rewrite": "/mis-reportes.html"
+    },
+    {
+      "route": "/notificaciones",
+      "rewrite": "/notificaciones.html"
+    },
+    {
+      "route": "/obligaciones",
+      "rewrite": "/obligaciones.html"
+    },
+    {
+      "route": "/pagos",
+      "rewrite": "/pagos.html"
+    },
+    {
+      "route": "/parqueaderos",
+      "rewrite": "/parqueaderos.html"
+    },
+    {
+      "route": "/pasarela-simulada",
+      "rewrite": "/pasarela-simulada.html"
+    },
+    {
+      "route": "/porteria",
+      "rewrite": "/porteria.html"
+    },
+    {
+      "route": "/privacidad",
+      "rewrite": "/privacidad.html"
+    },
+    {
+      "route": "/recaudo",
+      "rewrite": "/recaudo.html"
+    },
+    {
+      "route": "/recuperar",
+      "rewrite": "/recuperar.html"
+    },
+    {
+      "route": "/reportes",
+      "rewrite": "/reportes.html"
+    },
+    {
+      "route": "/reservas",
+      "rewrite": "/reservas.html"
+    },
+    {
+      "route": "/restablecer",
+      "rewrite": "/restablecer.html"
+    },
+    {
+      "route": "/tipos-inmueble",
+      "rewrite": "/tipos-inmueble.html"
+    },
+    {
+      "route": "/vehiculos",
+      "rewrite": "/vehiculos.html"
+    },
+    {
+      "route": "/vinculaciones",
+      "rewrite": "/vinculaciones.html"
+    },
+    {
+      "route": "/visitas",
+      "rewrite": "/visitas.html"
+    },
+    {
+      "route": "/zonas-comunes",
+      "rewrite": "/zonas-comunes.html"
+    }
+  ],
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/404.html",
+      "statusCode": 404
+    }
+  },
+  "platform": {
+    "apiRuntime": "node:20"
+  },
+  "globalHeaders": {
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "same-origin"
+  },
+  "mimeTypes": {
+    ".mjs": "text/javascript"
+  }
+}

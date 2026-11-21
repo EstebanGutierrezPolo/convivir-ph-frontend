@@ -1,0 +1,13 @@
+{
+  "name": "convivir-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pantallas de Convivir (HTML, CSS y JavaScript) y servidor que las sirve y pasa /api al backend.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node servidor.mjs"
+  }
+}

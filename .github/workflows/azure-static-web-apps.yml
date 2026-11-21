@@ -1,0 +1,24 @@
+# Despliega el frontend en Azure Static Web Apps (stw-convivir-frontend) con cada push a main.
+# public/ son las páginas tal cual (no hay compilación) y api/ es la función que pasa /api al backend.
+# El token de despliegue está en el secreto AZURE_STATIC_WEB_APPS_API_TOKEN del repositorio.
+name: Desplegar frontend
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  desplegar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Subir a Azure Static Web Apps
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          action: upload
+          app_location: public
+          api_location: api
+          output_location: ''
+          skip_app_build: true

@@ -1,0 +1,9 @@
+{
+  "name": "convivir-frontend-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Función de la Static Web App que pasa /api al backend (plan Free, sin backend enlazado).",
+  "engines": {
+    "node": ">=20"
+  }
+}

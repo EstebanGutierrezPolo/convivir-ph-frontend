@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#95D5B2">
+  <title>Recuperar contraseña · Convivir</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='14' fill='%23E3F1E4'/%3E%3Cpath d='M9 24 24 11 39 24' fill='none' stroke='%232F6B4F' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='18' cy='29' r='4' fill='%2395D5B2'/%3E%3Ccircle cx='30' cy='29' r='4' fill='%2374C69D'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="/css/convivir.css">
+</head>
+<body class="lp">
+
+<header class="lp-nav">
+  <div class="lp-nav-in">
+    <a href="/login" class="logo" aria-label="Convivir"><span class="logo">
+  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Convivir">
+    <rect width="48" height="48" rx="14" fill="#E3F1E4"/>
+    <path d="M9 24 24 11 39 24" stroke="#2F6B4F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M24 23.4c-2.2-1.6-3.4-2.7-3.4-4a1.9 1.9 0 0 1 3.4-1.1 1.9 1.9 0 0 1 3.4 1.1c0 1.3-1.2 2.4-3.4 4z" fill="#F4B6A0"/>
+    <circle cx="18" cy="29" r="3.8" fill="#95D5B2"/>
+    <circle cx="30" cy="29" r="3.8" fill="#74C69D"/>
+    <path d="M11.5 40c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6" stroke="#95D5B2" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M23.5 40c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6" stroke="#74C69D" stroke-width="2.4" stroke-linecap="round"/>
+  </svg>
+  <span class="logo-texto">CONVIVIR</span>
+</span></a>
+    <nav class="lp-links">
+      <a class="btn btn-link" href="/login">Iniciar sesión</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="lp-seccion">
+    <div class="lp-acceso">
+      <div class="lp-login">
+        <h2>Recupera tu contraseña</h2>
+
+        <div class="lp-msg ok" id="msgEnviado" hidden>
+          Si el correo está registrado, recibirás un enlace para restablecer tu contraseña.
+          El enlace vence en 30 minutos.
+        </div>
+
+        <div id="bloqueFormulario">
+          <p class="nota">Escribe tu correo y te enviaremos un enlace para crear una contraseña nueva.</p>
+          <form id="formRecuperar" method="post">
+            <label for="correo">Correo electrónico</label>
+            <input id="correo" name="correo" type="email" required autofocus autocomplete="username">
+            <button type="submit">Enviar enlace</button>
+          </form>
+        </div>
+
+        <a class="olvido" href="/login">Volver a iniciar sesión</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="lp-pie">Convivir · Proyecto de Ingeniería de Software II · Universidad Simón Bolívar</footer>
+<script>
+// RF-002: pide el enlace a la API. La respuesta es la misma exista o no el correo.
+(function () {
+  var form = document.getElementById('formRecuperar');
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    form.querySelector('button[type=submit]').disabled = true;
+    fetch('/api/recuperacion', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ correo: form.correo.value.trim() })
+    }).finally(function () {
+      document.getElementById('bloqueFormulario').hidden = true;
+      document.getElementById('msgEnviado').hidden = false;
+    });
+  });
+})();
+</script>
+</body>
+</html>
